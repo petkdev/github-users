@@ -9,12 +9,12 @@ import Profile from "./Profile"
 function App() {
   const [items, setItems] = useState([])
   // Change this to any username whose repositories you want to get
-  const [user] = useState("sankthomas")
+  const [user] = useState("paritytech")
 
   useEffect(() => {
     const fetchRepos = async () => {
       const res = await fetch(
-        `https://api.github.com/users/${user}/repos?per_page=6&sort=updated`
+        `https://api.github.com/users/${user}/repos?per_page=50&sort=updated`
       )
       const data = await res.json()
       setItems(data)
@@ -28,7 +28,7 @@ function App() {
     <>
       <div className="pt-10">
         <h1 className="mb-10 font-bold text-2xl">
-          Viewing {user}'s repositories
+          {user} repositories
         </h1>
       </div>
 
